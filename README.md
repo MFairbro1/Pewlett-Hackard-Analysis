@@ -22,18 +22,18 @@
 
 ### The wave of retiring employees will leave 72,458 vacancies at the company. There are 1549 qualified, retirement-ready employees who can mentor the next generation of employees. This is roughly only 2% of the retiring employees. If divided evenly, that would mean each mentor would be responsible for training almost 50 new employees which may be a difficult task. It does not look like Pewlett Hackard has enough qualified mentors to train the next generation of employees. If we use the following query, we get the count of mentorship-eligible employees per title:
 
-SELECT COUNT(title), title
-INTO mentorship_count
-FROM mentorship_eligibility
-GROUP BY title
-ORDER BY count DESC
+### SELECT COUNT(title), title
+### INTO mentorship_count
+### FROM mentorship_eligibility
+### GROUP BY title
+### ORDER BY count DESC
 
-If we look at the results of this query, we find that title with the largest number of upcoming vacancies (Senior Engineer) will also have comparatively few eligible retiring employees who could mentor the new generation. Certain titles are better off, such as "Engineer" and "Assistant Engineer" as they would each have less than 20 new employees per mentor. It may also help to add the following query, which would give a count of all current employees per title. This allows us to see how much of an impact the retirements will have on each title. More than 25% of senior engineers and senior staff will be lost:
+### If we look at the results of this query, we find that title with the largest number of upcoming vacancies (Senior Engineer) will also have comparatively few eligible retiring employees who could mentor the new generation. Certain titles are better off, such as "Engineer" and "Assistant Engineer" as they would each have less than 20 new employees per mentor. It may also help to add the following query, which would give a count of all current employees per title. This allows us to see how much of an impact the retirements will have on each title. More than 25% of senior engineers and senior staff will be lost:
 
-SELECT COUNT(title), title
-INTO employees_count
-FROM employees
-LEFT JOIN titles
-ON employees.emp_no = titles.emp_no
-GROUP BY title
-ORDER BY count DESC
+### SELECT COUNT(title), title
+### INTO employees_count
+### FROM employees
+### LEFT JOIN titles
+### ON employees.emp_no = titles.emp_no
+### GROUP BY title
+### ORDER BY count DESC
